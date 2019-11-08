@@ -10,8 +10,6 @@ exports.up = function(knex) {
         tbl.increments();
 
         tbl.string('name', 64).notNullable();
-        tbl.float('quantity').notNullable();
-        tbl.string('measurement').notNullable();
     })
     .createTable('recipe_ingredients', tbl => {
         tbl.increments();
@@ -31,6 +29,7 @@ exports.up = function(knex) {
         .inTable('ingredients')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE');
+        tbl.float('quantity').notNullable();
     })
 };
 
